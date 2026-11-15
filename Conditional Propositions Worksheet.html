@@ -1,0 +1,336 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Conditional Propositions Worksheet</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@500;700&display=swap">
+<style>
+/* Layout: one narrow worksheet column; reference card on top, items grouped in four parts, score + answer code at the end. */
+:root{
+  --bg:#f4f6fb; --surface:#ffffff; --ink:#14213d; --muted:#5a6580; --line:#d9deea;
+  --accent:#2548b8; --accent-ink:#ffffff; --mark:#ffd84d; --mark-ink:#3a2f00;
+  --good:#12795a; --good-bg:#e0f4ec; --bad:#b3261e; --bad-bg:#fbe6e4;
+  --font-head:'Space Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-body:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1524; --surface:#16203a; --ink:#e8ecf8; --muted:#9aa6c4; --line:#2a3658;
+    --accent:#8aa4ff; --accent-ink:#0e1524; --mark:#ffd84d; --mark-ink:#3a2f00;
+    --good:#5fd3a8; --good-bg:#12342b; --bad:#ff8f86; --bad-bg:#3b1b1a; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1524; --surface:#16203a; --ink:#e8ecf8; --muted:#9aa6c4; --line:#2a3658;
+  --accent:#8aa4ff; --accent-ink:#0e1524; --mark:#ffd84d; --mark-ink:#3a2f00;
+  --good:#5fd3a8; --good-bg:#12342b; --bad:#ff8f86; --bad-bg:#3b1b1a; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.55;
+  padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));margin:0}
+.wrap{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+h1,h2,h3{font-family:var(--font-head);margin:0;text-wrap:balance;line-height:1.15}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0 0 8px}
+h1{font-size:clamp(28px,6vw,40px);font-weight:700}
+.sub{color:var(--muted);margin:8px 0 0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px}
+.ref h2{font-size:15px;margin-bottom:12px}
+.ref table{width:100%;border-collapse:collapse;font-size:15px}
+.ref th,.ref td{text-align:left;padding:8px 6px;border-top:1px solid var(--line);vertical-align:baseline}
+.ref th{font-weight:600;width:34%}
+.sym{font-family:var(--font-mono);font-weight:700;background:var(--mark);color:var(--mark-ink);padding:2px 8px;border-radius:4px;white-space:nowrap}
+.ref td.say{color:var(--muted)}
+.tabs{display:flex;gap:6px;border-bottom:1px solid var(--line)}
+.tab{font:600 15px var(--font-body);background:none;border:0;border-bottom:3px solid transparent;color:var(--muted);padding:10px 14px;cursor:pointer;margin-bottom:-1px}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+.tab:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.info{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:560px){.info{grid-template-columns:1fr}}
+label.field{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:14px;min-width:0}
+input[type=text],textarea{font:400 16px var(--font-body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:11px 12px;width:100%;min-width:0}
+textarea{font-family:var(--font-mono);font-size:13px;resize:vertical}
+.part{display:flex;flex-direction:column;gap:14px}
+.part-head{display:flex;flex-direction:column;gap:2px;padding-top:6px}
+.part-head h2{font-size:20px}
+.part-head p{margin:0;color:var(--muted);font-size:14px}
+.item{display:flex;flex-direction:column;gap:12px;min-width:0}
+.item-top{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.num{font-family:var(--font-mono);font-weight:700;font-size:13px;color:var(--accent)}
+.stmt{margin:0;padding:10px 12px;background:var(--bg);border-left:4px solid var(--mark);border-radius:4px;font-weight:500}
+.q{margin:0;font-weight:600}
+.opts{display:flex;flex-direction:column;gap:8px;margin:0;padding:0;border:0;min-width:0}
+.opt{display:grid;grid-template-columns:auto auto 1fr;gap:10px;align-items:start;padding:10px 12px;border:1px solid var(--line);border-radius:8px;cursor:pointer;min-width:0}
+.opt:hover{border-color:var(--accent)}
+.opt input{margin:3px 0 0;accent-color:var(--accent)}
+.opt .l{font-family:var(--font-mono);font-weight:700;color:var(--muted)}
+.opt .t{overflow-wrap:anywhere}
+.opt.is-correct{border-color:var(--good);background:var(--good-bg)}
+.opt.is-wrong{border-color:var(--bad);background:var(--bad-bg)}
+.tag{font-size:12px;font-weight:600;margin-left:6px}
+.opt.is-correct .tag{color:var(--good)}
+.opt.is-wrong .tag{color:var(--bad)}
+.why{margin:0;font-size:14px;color:var(--muted);padding-top:2px}
+.submit{display:flex;flex-direction:column;gap:12px}
+.bar{height:8px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar>span{display:block;height:100%;width:0;background:var(--accent);transition:width .2s}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.btn{font:600 16px var(--font-body);border-radius:8px;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);padding:12px 20px;cursor:pointer}
+.btn.ghost{background:none;color:var(--accent)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.msg{margin:0;color:var(--bad);font-weight:600;font-size:14px}
+.score-card{display:flex;flex-direction:column;gap:14px;border:2px solid var(--accent)}
+.score-line{display:flex;gap:16px;align-items:baseline;flex-wrap:wrap}
+.score-big{font-family:var(--font-head);font-weight:700;font-size:56px;line-height:1}
+.score-big small{font-size:24px;color:var(--muted)}
+.who{color:var(--muted);margin:0;font-size:14px}
+.code-box h3{font-size:16px;margin-bottom:4px}
+.code-box p{margin:0 0 10px;color:var(--muted);font-size:14px}
+.code-box textarea{font-weight:700;word-break:break-all}
+.sumtable{width:100%;border-collapse:collapse;font-size:14px}
+.sumtable th,.sumtable td{text-align:left;padding:8px 6px;border-top:1px solid var(--line)}
+.sumtable th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.sumtable button{font:600 14px var(--font-body);background:none;border:0;color:var(--accent);padding:0;cursor:pointer;text-align:left}
+.scroll{overflow-x:auto}
+.ok{color:var(--good);font-weight:700}.no{color:var(--bad);font-weight:700}
+.mono{font-family:var(--font-mono)}
+.panel{display:flex;flex-direction:column;gap:22px}
+.share h2{font-size:20px;margin-bottom:4px}
+@media (prefers-reduced-motion:reduce){.bar>span{transition:none}}
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Logic and Reasoning</p>
+    <h1>Forms of Conditional Proposition</h1>
+    <p class="sub">Converse, Inverse and Contrapositive &middot; 20 items</p>
+  </header>
+
+  <section class="card ref" aria-label="Reference">
+    <h2>Remember the four forms of &ldquo;If p, then q&rdquo;</h2>
+    <div class="scroll">
+    <table>
+      <tr><th>Conditional</th><td><span class="sym">p &rarr; q</span></td><td class="say">If p, then q</td></tr>
+      <tr><th>Converse</th><td><span class="sym">q &rarr; p</span></td><td class="say">Switch the hypothesis and conclusion</td></tr>
+      <tr><th>Inverse</th><td><span class="sym">~p &rarr; ~q</span></td><td class="say">Negate both parts</td></tr>
+      <tr><th>Contrapositive</th><td><span class="sym">~q &rarr; ~p</span></td><td class="say">Switch and negate both parts</td></tr>
+    </table>
+    </div>
+  </section>
+
+  <div id="panel-ws" class="panel">
+    <section class="card">
+      <div class="info">
+        <label class="field" for="stuName">Full name
+          <input type="text" id="stuName" autocomplete="name" placeholder="Last name, First name">
+        </label>
+        <label class="field" for="stuGS">Grade &amp; section
+          <input type="text" id="stuGS" placeholder="e.g. Grade 9 - Newton">
+        </label>
+      </div>
+    </section>
+
+    <div id="items" style="display:flex;flex-direction:column;gap:22px"></div>
+
+    <section class="card submit" id="submitBox">
+      <div class="row"><strong id="progLabel">0 of 20 answered</strong><span class="who">Answer every item, then submit.</span></div>
+      <div class="bar" aria-hidden="true"><span id="progBar"></span></div>
+      <p class="msg" id="formMsg" role="alert" hidden></p>
+      <div class="row">
+        <button class="btn" id="submitBtn" type="button">Submit answers</button>
+      </div>
+    </section>
+
+    <div id="result" aria-live="polite"></div>
+
+    <section class="card code-box share" id="shareBox">
+      <h2>Share my code</h2>
+      <p id="shareHint">Submit your answers first. Your score and the message to send your teacher will appear here.</p>
+      <div id="shareBody" hidden>
+        <p>Copy this whole message and send it to your teacher. It shows your name, score and every answer.</p>
+        <textarea id="codeOut" rows="9" readonly spellcheck="false"></textarea>
+        <div class="row" style="margin-top:10px;justify-content:flex-start"><button class="btn" id="copyBtn" type="button">Share my code (copy)</button><button class="btn ghost" id="againBtn" type="button">Start over</button></div>
+        <p id="copyNote" class="who" style="margin-top:8px"></p>
+      </div>
+    </section>
+  </div>
+
+  <div id="panel-teacher" class="panel" hidden>
+    <section class="card">
+      <h2 style="font-size:18px;margin-bottom:6px">Check student answer codes</h2>
+      <p class="who" style="margin-bottom:12px">Paste one code per line. You will see each student&rsquo;s name, section, score and item-by-item answers.</p>
+      <textarea id="codesIn" rows="5" placeholder="CP1.xxxxxxxx.xx" spellcheck="false"></textarea>
+      <div class="row" style="margin-top:12px;justify-content:flex-start">
+        <button class="btn" id="checkBtn" type="button">Check codes</button>
+        <button class="btn ghost" id="clearBtn" type="button">Clear</button>
+      </div>
+    </section>
+    <div id="tOut"></div>
+  </div>
+</div>
+
+<script>
+// ===== CORE-START =====
+const LET = 'ABCD';
+const SECTIONS = [
+  {t:'Part I. Name the form', n:'Write the converse, inverse or contrapositive of each given statement.', from:0, to:5},
+  {t:'Part II. Symbols', n:'Work with p and q in symbolic form.', from:6, to:9},
+  {t:'Part III. How the forms relate', n:'Think about which forms are equivalent.', from:10, to:13},
+  {t:'Part IV. Truth values and applications', n:'Decide what is true, false or can be concluded.', from:14, to:19}
+];
+const D1 = 'If a number is divisible by 6, then it is divisible by 3.';
+const ITEMS = [
+ {s:D1, q:'Which statement is the CONVERSE?', o:['If a number is divisible by 3, then it is divisible by 6.','If a number is not divisible by 6, then it is not divisible by 3.','If a number is not divisible by 3, then it is not divisible by 6.','If a number is divisible by 6, then it is not divisible by 3.'], a:0, w:'The converse switches the hypothesis and the conclusion: q → p.'},
+ {s:D1, q:'Which statement is the INVERSE?', o:['If a number is not divisible by 3, then it is not divisible by 6.','If a number is divisible by 3, then it is divisible by 6.','If a number is not divisible by 6, then it is not divisible by 3.','If a number is not divisible by 6, then it is divisible by 3.'], a:2, w:'The inverse negates both parts and keeps the order: ~p → ~q.'},
+ {s:D1, q:'Which statement is the CONTRAPOSITIVE?', o:['If a number is divisible by 3, then it is divisible by 6.','If a number is not divisible by 6, then it is not divisible by 3.','If a number is not divisible by 3, then it is not divisible by 6.','If a number is divisible by 6, then it is divisible by 3.'], a:2, w:'The contrapositive switches and negates: ~q → ~p.'},
+ {s:'If a polygon is a square, then it has four sides.', q:'Which statement is the CONTRAPOSITIVE?', o:['If a polygon has four sides, then it is a square.','If a polygon is not a square, then it does not have four sides.','If a polygon does not have four sides, then it is a square.','If a polygon does not have four sides, then it is not a square.'], a:3, w:'Switch the parts and negate both: ~q → ~p.'},
+ {s:'If an angle measures 90°, then it is a right angle.', q:'Which statement is the INVERSE?', o:['If an angle is a right angle, then it measures 90°.','If an angle does not measure 90°, then it is not a right angle.','If an angle is not a right angle, then it does not measure 90°.','If an angle measures 90°, then it is not a right angle.'], a:1, w:'Keep the order and negate both parts: ~p → ~q.'},
+ {s:'If a triangle is equilateral, then it is equiangular.', q:'Which statement is the CONVERSE?', o:['If a triangle is not equilateral, then it is not equiangular.','If a triangle is not equiangular, then it is not equilateral.','If a triangle is equiangular, then it is equilateral.','If a triangle is equilateral, then it is not equiangular.'], a:2, w:'Only switch the hypothesis and conclusion: q → p.'},
+ {s:'', q:'Given the conditional p → q, the converse is:', o:['~p → ~q','q → p','~q → ~p','p → ~q'], a:1, w:'Converse: q → p.'},
+ {s:'', q:'Given the conditional p → q, the inverse is:', o:['~q → ~p','q → p','~p → q','~p → ~q'], a:3, w:'Inverse: ~p → ~q.'},
+ {s:'', q:'Given the conditional p → q, the contrapositive is:', o:['~q → ~p','q → p','~p → ~q','~q → p'], a:0, w:'Contrapositive: ~q → ~p.'},
+ {s:'', q:'Which form is always logically equivalent to p → q?', o:['Converse','Inverse','None of these','Contrapositive'], a:3, w:'A conditional and its contrapositive always have the same truth value.'},
+ {s:'', q:'The converse of a conditional is logically equivalent to which form?', o:['The original conditional','The inverse','The contrapositive','None of these'], a:1, w:'The converse (q → p) and the inverse (~p → ~q) are contrapositives of each other, so they match.'},
+ {s:'', q:'Take the converse of p → q, then take the inverse of that result. What do you get?', o:['p → q','~q → ~p','~p → ~q','q → p'], a:1, w:'Converse gives q → p. Its inverse is ~q → ~p, the contrapositive of the original.'},
+ {s:'', q:'Take the inverse of p → q, then take the contrapositive of that result. What do you get?', o:['q → p','p → q','~p → ~q','~q → ~p'], a:0, w:'Inverse gives ~p → ~q. Its contrapositive is q → p, the converse of the original.'},
+ {s:'', q:'Suppose a conditional statement is true. Which is correct about its converse?', o:['The converse must be true.','The converse must be false.','The converse is the same statement.','The converse may be true or false.'], a:3, w:'A true conditional does not guarantee a true converse. Check with examples.'},
+ {s:'If x = 3, then x² = 9.', q:'Which value of x is a counterexample showing the converse is false?', o:['x = 3','x = −3','x = 9','x = 0'], a:1, w:'The converse is “If x² = 9, then x = 3.” When x = −3, x² = 9 but x is not 3.'},
+ {s:'If an animal is a dog, then it is a mammal.', q:'The inverse is “If an animal is not a dog, then it is not a mammal.” Is the inverse true or false?', o:['True','False, because a cat is a mammal but not a dog','False, because every dog is a mammal','Cannot be determined'], a:1, w:'A cat is not a dog but is a mammal, so the inverse fails.'},
+ {s:'If a figure is a rectangle, then it has four right angles.', q:'The statement is true. What is the truth value of its contrapositive?', o:['True, because a conditional and its contrapositive always match','False, because the converse is false','False, because the inverse is false','Cannot be determined'], a:0, w:'A conditional and its contrapositive are logically equivalent.'},
+ {s:'If you study, then you will pass.', q:'Which statement is the INVERSE?', o:['If you pass, then you study.','If you do not study, then you will not pass.','If you do not pass, then you did not study.','If you study, then you will not pass.'], a:1, w:'Negate both parts and keep the order: ~p → ~q.'},
+ {s:'If a number is even, then it is divisible by 2.', q:'The converse is also true. What can you write by joining the statement and its converse?', o:['A number is even if and only if it is divisible by 2.','A number is even or it is divisible by 2.','A number is even and it is not divisible by 2.','A number is not even if it is divisible by 2.'], a:0, w:'When a conditional and its converse are both true, they form a biconditional (p ↔ q).'},
+ {s:'If it is Sunday, then there is no class.', q:'Which statement is the CONTRAPOSITIVE?', o:['If there is class, then it is not Sunday.','If it is not Sunday, then there is class.','If there is no class, then it is Sunday.','If there is class, then it is Sunday.'], a:0, w:'Negate “no class” to get “there is class”, negate “Sunday”, then switch: ~q → ~p.'}
+];
+function b64u(str){const by=new TextEncoder().encode(str);let bin='';by.forEach(b=>bin+=String.fromCharCode(b));return btoa(bin).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');}
+function unb64u(s){s=s.replace(/-/g,'+').replace(/_/g,'/');while(s.length%4)s+='=';const bin=atob(s);return new TextDecoder().decode(Uint8Array.from(bin,c=>c.charCodeAt(0)));}
+function chk(s){let h=7;for(let i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))%1296;return h.toString(36).padStart(2,'0');}
+function scoreOf(ans){return ans.filter((a,i)=>a===ITEMS[i].a).length;}
+function makeCode(name,gs,ans,when){
+  const clean=x=>x.replace(/\|/g,'/').trim();
+  const payload=[clean(name),clean(gs),ans.map(i=>LET[i]).join(''),Math.floor(when/60000).toString(36)].join('|');
+  const b=b64u(payload);return 'CP1.'+b+'.'+chk(b);
+}
+function readCode(code){
+  const m=/^CP1\.([A-Za-z0-9_-]+)\.([0-9a-z]{2})$/.exec(String(code).trim());
+  if(!m||chk(m[1])!==m[2])return null;
+  let p;try{p=unb64u(m[1]).split('|');}catch(e){return null;}
+  if(p.length!==4||!/^[A-D]{20}$/.test(p[2]))return null;
+  const ans=[...p[2]].map(c=>LET.indexOf(c));
+  return {name:p[0],gs:p[1],ans,when:parseInt(p[3],36)*60000,score:scoreOf(ans)};
+}
+// ===== CORE-END =====
+
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let submitted=false;
+
+function build(){
+  let html='';
+  SECTIONS.forEach(sec=>{
+    html+=`<section class="part"><div class="part-head"><h2>${esc(sec.t)}</h2><p>${esc(sec.n)}</p></div>`;
+    for(let i=sec.from;i<=sec.to;i++){
+      const it=ITEMS[i];
+      html+=`<article class="card item" id="item-${i}"><div class="item-top"><span class="num">ITEM ${i+1}</span></div>`;
+      if(it.s) html+=`<p class="stmt">${esc(it.s)}</p>`;
+      html+=`<fieldset class="opts"><legend class="q" style="padding:0;margin-bottom:10px">${esc(it.q)}</legend>`;
+      it.o.forEach((o,k)=>{
+        html+=`<label class="opt" id="opt-${i}-${k}"><input type="radio" name="q${i}" value="${k}"><span class="l">${LET[k]}.</span><span class="t">${esc(o)}</span></label>`;
+      });
+      html+=`</fieldset><p class="why" id="why-${i}" hidden></p></article>`;
+    }
+    html+='</section>';
+  });
+  $('items').innerHTML=html;
+}
+function getAnswers(){
+  return ITEMS.map((_,i)=>{const c=document.querySelector(`input[name="q${i}"]:checked`);return c?+c.value:-1;});
+}
+function updateProgress(){
+  const n=getAnswers().filter(a=>a>=0).length;
+  $('progLabel').textContent=n+' of 20 answered';
+  $('progBar').style.width=(n/20*100)+'%';
+}
+function showMsg(t){const m=$('formMsg');m.textContent=t;m.hidden=!t;}
+function remark(s){return s>=18?'Excellent work.':s>=15?'Very good.':s>=12?'Good effort. Review the items you missed.':'Keep practicing. Review the reference card and try again.';}
+
+function submit(){
+  const name=$('stuName').value.trim(), gs=$('stuGS').value.trim();
+  if(!name){showMsg('Type your full name first.');$('stuName').focus();return;}
+  if(!gs){showMsg('Type your grade and section first.');$('stuGS').focus();return;}
+  const ans=getAnswers();
+  const miss=ans.map((a,i)=>a<0?i+1:0).filter(Boolean);
+  if(miss.length){showMsg('Answer item'+(miss.length>1?'s ':' ')+miss.join(', ')+' before submitting.');$('item-'+(miss[0]-1)).scrollIntoView({behavior:'smooth',block:'center'});return;}
+  showMsg('');
+  const score=scoreOf(ans), pct=Math.round(score/20*100), code=makeCode(name,gs,ans,Date.now());
+  submitted=true;
+  document.querySelectorAll('#panel-ws input').forEach(el=>el.disabled=true);
+  $('submitBtn').disabled=true;
+  ITEMS.forEach((it,i)=>{
+    const picked=ans[i];
+    const right=$(`opt-${i}-${it.a}`);right.classList.add('is-correct');
+    right.querySelector('.t').insertAdjacentHTML('beforeend','<span class="tag">Correct answer</span>');
+    if(picked!==it.a){const w=$(`opt-${i}-${picked}`);w.classList.add('is-wrong');w.querySelector('.t').insertAdjacentHTML('beforeend','<span class="tag">Your answer</span>');}
+    const why=$('why-'+i);why.textContent=it.w;why.hidden=false;
+  });
+  $('result').innerHTML=`<section class="card score-card" id="scoreCard">
+    <p class="who">${esc(name)} &middot; ${esc(gs)}</p>
+    <div class="score-line"><div class="score-big">${score}<small> / 20</small></div><div><strong style="font-size:20px">${pct}%</strong><br><span class="who">${remark(score)}</span></div></div>
+  </section>`;
+  const msg=['Conditional Propositions Worksheet','Name: '+name,'Grade & Section: '+gs,'Score: '+score+'/20 ('+pct+'%)','Answers: '+ans.map((a,i)=>(i+1)+LET[a]).join('  '),'Code: '+code].join('\n');
+  $('shareHint').hidden=true;$('shareBody').hidden=false;$('codeOut').value=msg;$('copyNote').textContent='';
+  $('copyBtn').onclick=async()=>{
+    const ta=$('codeOut');ta.select();
+    try{await navigator.clipboard.writeText(msg);$('copyNote').textContent='Copied. Paste it into your message to your teacher.';}
+    catch(e){$('copyNote').textContent='Code selected. Press Ctrl+C (or tap and hold, then Copy).';}
+  };
+  $('againBtn').onclick=reset;
+  $('scoreCard').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function reset(){
+  submitted=false;
+  build();bind();
+  $('result').innerHTML='';$('shareBody').hidden=true;$('shareHint').hidden=false;$('submitBtn').disabled=false;showMsg('');updateProgress();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function bind(){document.querySelectorAll('#items input').forEach(el=>el.addEventListener('change',updateProgress));}
+
+/* Teacher check */
+let parsed=[],sel=0;
+function checkCodes(){
+  const lines=$('codesIn').value.split(/\n+/).map(s=>s.trim()).filter(Boolean);
+  parsed=lines.map(l=>({raw:l,r:readCode(l)}));sel=Math.max(0,parsed.findIndex(p=>p.r));
+  renderTeacher();
+}
+function renderTeacher(){
+  if(!parsed.length){$('tOut').innerHTML='';return;}
+  const fmt=t=>new Date(t).toLocaleString('en-PH',{dateStyle:'medium',timeStyle:'short'});
+  let h=`<section class="card"><div class="scroll"><table class="sumtable"><tr><th>#</th><th>Name</th><th>Grade &amp; section</th><th>Score</th><th>Submitted</th></tr>`;
+  parsed.forEach((p,i)=>{
+    if(p.r) h+=`<tr><td>${i+1}</td><td><button type="button" data-i="${i}">${esc(p.r.name)}</button></td><td>${esc(p.r.gs)}</td><td><strong>${p.r.score}/20</strong></td><td>${fmt(p.r.when)}</td></tr>`;
+    else h+=`<tr><td>${i+1}</td><td colspan="4" class="no">Not a valid code. Ask the student to copy it again in full.</td></tr>`;
+  });
+  h+='</table></div></section>';
+  const p=parsed[sel];
+  if(p&&p.r){
+    const r=p.r;
+    h+=`<section class="card"><h3 style="font-size:18px;margin-bottom:4px">${esc(r.name)}</h3><p class="who" style="margin-bottom:12px">${esc(r.gs)} &middot; Score ${r.score}/20 (${Math.round(r.score/20*100)}%)</p><div class="scroll"><table class="sumtable"><tr><th>Item</th><th>Student</th><th>Correct</th><th></th></tr>`;
+    r.ans.forEach((a,i)=>{const ok=a===ITEMS[i].a;h+=`<tr><td class="mono">${i+1}</td><td class="mono">${LET[a]}</td><td class="mono">${LET[ITEMS[i].a]}</td><td class="${ok?'ok':'no'}">${ok?'Correct':'Wrong'}</td></tr>`;});
+    h+='</table></div></section>';
+  }
+  $('tOut').innerHTML=h;
+  $('tOut').querySelectorAll('button[data-i]').forEach(b=>b.onclick=()=>{sel=+b.dataset.i;renderTeacher();});
+}
+
+/* Tabs */
+function show(tab){
+  const t=tab==='teacher';
+  $('panel-ws').hidden=t;$('panel-teacher').hidden=!t;
+}
+window.addEventListener('hashchange',()=>show(location.hash==='#teacher'?'teacher':'ws'));
+show(location.hash==='#teacher'?'teacher':'ws');
+
+$('submitBtn').onclick=submit;
+$('checkBtn').onclick=checkCodes;
+$('clearBtn').onclick=()=>{$('codesIn').value='';parsed=[];renderTeacher();};
+build();bind();updateProgress();
+</script>
+
+</body></html>
